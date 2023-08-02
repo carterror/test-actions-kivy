@@ -45,7 +45,7 @@ jobs:
 
       - name: Build with Buildozer
         id: buildozer
-        run: buildozer -v android debug
+        run: buildozer -v android debug y \n
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
