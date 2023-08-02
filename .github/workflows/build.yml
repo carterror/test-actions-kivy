@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: /*.spec
+          path: buildozer.spec
 
 # crear receta para compilar c que se ejecuta en kivy en un procesador arm
 # test unit
