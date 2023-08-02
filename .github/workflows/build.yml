@@ -43,15 +43,21 @@ jobs:
       - name: Install dep4
         run: pip3 install --user --upgrade buildozer
 
+      - name: Install dep5
+        run: pip3 install pytest
+
+      - name: Test
+        run: pytest
+
       - name: Build with Buildozer
         id: buildozer
-        run: buildozer init
+        run: buildozer -v android debug 
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: package
-          path: buildozer.spec
+          path: bin/*.apk
 
 # crear receta para compilar c que se ejecuta en kivy en un procesador arm
 # test unit
