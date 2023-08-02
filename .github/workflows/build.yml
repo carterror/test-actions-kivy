@@ -45,9 +45,7 @@ jobs:
 
       - name: Build with Buildozer
         id: buildozer
-        run: |
-          cd ${{ github.workspace }}
-          buildozer -v android debug
+        run: buildozer -v android debug
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
