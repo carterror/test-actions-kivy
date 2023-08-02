@@ -45,13 +45,13 @@ jobs:
 
       - name: Build with Buildozer
         id: buildozer
-        run: buildozer -v android debug
+        run: buildozer init
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: release
-          path: bin/*.apk
+          name: package
+          path: /*.spec
 
 # crear receta para compilar c que se ejecuta en kivy en un procesador arm
 # test unit
