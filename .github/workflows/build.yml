@@ -1,5 +1,9 @@
 name: Build APK
-on: [push,pull_request]
+# on: [push,pull_request]
+on: 
+  workflow_run:
+    workflows: [Test]
+    types: [completed]
 
 jobs:
   build-android:
@@ -21,3 +25,6 @@ jobs:
         with:
           name: package
           path: bin/*.apk
+
+# crear receta para compilar c que se ejecuta en kivy en un procesador arm
+# test unit
