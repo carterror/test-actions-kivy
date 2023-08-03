@@ -1,9 +1,6 @@
 name: Build APK
 # on: [push,pull_request]
-on: 
-  workflow_run:
-    workflows: [test]
-    types: [completed]
+on: [push]
 
 jobs:
   build-android:
@@ -18,13 +15,15 @@ jobs:
           sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
           pip install --user --upgrade Cython==0.29.33 virtualenv
           pip install --user --upgrade buildozer
+          python -m pip install --upgrade pip
           export PATH=$PATH:~/.local/bin/
           buildozer -v android debug
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
         with:
-          name: package
-          path: bin/*.apk
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          packages_dir: bin/
 
 # crear receta para compilar c que se ejecuta en kivy en un procesador arm
 # test unit
