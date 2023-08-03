@@ -2,7 +2,7 @@ name: Build APK
 # on: [push,pull_request]
 on: 
   workflow_run:
-    workflows: [Test]
+    workflows: [test]
     types: [completed]
 
 jobs:
