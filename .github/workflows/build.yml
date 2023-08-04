@@ -16,8 +16,11 @@ jobs:
           pip install --user --upgrade buildozer
           export PATH=$PATH:~/.local/bin/
           buildozer -v android debug
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: package
-          path: bin/*.apk
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: bin/*.apk
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
