@@ -21,6 +21,6 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: bin/*.apk
-          tag: ${{ github.ref }}
+          tag: build
           overwrite: true
           file_glob: true
