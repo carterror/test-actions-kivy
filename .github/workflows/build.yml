@@ -14,3 +14,4 @@ jobs:
       with:
         artifacts: "bin/*.spec"
         bodyFile: "body.md"
+        tag: v1.0
