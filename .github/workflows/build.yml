@@ -9,13 +9,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Set custom commit variable
-        id: set_commit_var
-        run: |
-          COMMIT_VAR=$(git log -1 --pretty=format:'%h')
-          echo "COMMIT_VAR=$COMMIT_VAR" >> $GITHUB_ENV
       - name: Print custom commit variable
-        run: echo $COMMIT_VAR
+        run: echo $GITHUB_SHA
     # - name: Checkout
     #   uses: actions/checkout@v3
     # - name: Install Deps
