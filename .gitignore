@@ -2,7 +2,6 @@
 .coverage
 Kivy.egg-info
 Kivy-*.dist-info
-*.so
 *.pyd
 *.pyc
 *.pyo
