@@ -9,25 +9,23 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Set short SHA
-        id: sha
-        run: echo "::set-output name=sha_short::$(echo ${GITHUB_SHA:0:10})"
-
-      - name: Use short SHA
-        run: echo ${{ steps.sha.outputs.sha_short }}
-    #   uses: actions/checkout@v3
-    # - name: Install Deps
-    #   run: |
-    #     # sudo apt update
-    #     # sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
-    # - name: Build with Buildozer
-    #   run: |
-    #     # pip install --user --upgrade Cython==0.29.33 virtualenv
-    #     # pip install --user --upgrade buildozer
-    #     # export PATH=$PATH:~/.local/bin/
-    #     # buildozer -v android debug
-    # - name: Realese
-    #   uses: ncipollo/release-action@v1
-    #   with:
-    #     artifacts: "*.spec"
-    #     tag: ${{github.sha}:0:10}
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install Deps
+      run: |
+        # sudo apt update
+        # sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+    - name: Build with Buildozer
+      run: |
+        # pip install --user --upgrade Cython==0.29.33 virtualenv
+        # pip install --user --upgrade buildozer
+        # export PATH=$PATH:~/.local/bin/
+        # buildozer -v android debug
+    - name: Set short SHA
+      id: sha
+      run: echo "::set-output name=sha_short::$(echo ${GITHUB_SHA:0:10})"
+    - name: Realese
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "*.spec"
+        tag: ${{ steps.sha.outputs.sha_short }}
