@@ -25,4 +25,4 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "*.spec"
-        tag: ${{github.sha}}
+        tag: ${{github.sha:0:10}}
