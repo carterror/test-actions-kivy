@@ -28,4 +28,4 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: "bin/*.apk"
-        tag: ${{ steps.sha.outputs.sha_short }}
+        tag: v2.0.0
