@@ -20,9 +20,9 @@ jobs:
         pip install --user --upgrade Cython==0.29.33 virtualenv
         pip install --user --upgrade buildozer
         export PATH=$PATH:~/.local/bin/
-        buildozer -v android debug
+        # buildozer -v android debug
     - name: Realese
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "bin/*.apk"
-        tag: c-${GITHUB_SHA:0:10}
+        artifacts: "*.spec"
+        tag: GITHUB_SHA
