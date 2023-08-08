@@ -12,6 +12,8 @@ jobs:
     - name: Checkout
       id: test1
       run: echo ${GITHUB_SHA:0:10}
+    - name: Checkout1
+      run: echo ${test1.output}
     #   uses: actions/checkout@v3
     # - name: Install Deps
     #   run: |
