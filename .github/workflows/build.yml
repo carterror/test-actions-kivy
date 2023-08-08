@@ -27,5 +27,5 @@ jobs:
     - name: Realese
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "*.spec"
+        artifacts: "bin/*.apk"
         tag: ${{ steps.sha.outputs.sha_short }}
