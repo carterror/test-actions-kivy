@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document Kivy-Python compile actions github</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>GitHub Actions to compile apk created with Kivy-Python</h1>
-    <hr>
-    <h2>
-        Once the kivy project is created and uploaded to github </h2>
+    <hr />
+    <h2>Once the kivy project is created and uploaded to github</h2>
     <small>
-        I'm going to save all the interaction with git and kivy-python</small>
+      I'm going to save all the interaction with git and kivy-python</small
+    >
     <p>Create a .yml file in:</p>
     <blockquote>
-        <p>/.github/workflows/{name}.yml</p>
+      <p>/.github/workflows/{name}.yml</p>
     </blockquote>
     <pre>
     <code>name: Build APK
@@ -46,7 +46,192 @@
                   path: bin/*.apk</code>
     </pre>
 
-    <h3>There is an alternative that can help you but it has more complexity to understand the .yml</h3>
-    <blockquote><a href="https://github.com/ArtemSBulgakov/buildozer-action">ArtemSBulgakov/buildozer-action@v1</a></blockquote>
-</body>
+    <h3>
+      There is an alternative that can help you but it has more complexity to
+      understand the .yml
+    </h3>
+    <blockquote>
+      <a href="https://github.com/ArtemSBulgakov/buildozer-action"
+        >ArtemSBulgakov/buildozer-action@v1</a
+      >
+    </blockquote>
+  </body>
 </html>
+
+<div>
+  <div class="fs-5">
+    <p class="text-black mb-3">
+      To create a Python for Android recipe to precompile C code before building
+      with Buildozer, you can follow these steps:
+    </p>
+  </div>
+  <div class="fs-5">
+    <ol class="mb-2" ordered="true" depth="0">
+      <li>
+        Fork the Python for Android repository and clone your own version of it
+        using the following command:
+      </li>
+    </ol>
+  </div>
+  <div class="fs-5">
+    <pre>
+  <div class="mt-3 p-1" style="background-color: rgb(40, 42, 54); border-radius: 12px;"><div style="color: rgb(248, 248, 242); background: rgb(40, 42, 54); text-shadow: rgba(0, 0, 0, 0.3) 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; padding: 1em; margin: 0.5em 0px; overflow: auto; border-radius: 0.3em;"><code class="language-bash" style="color: rgb(248, 248, 242); background: none; text-shadow: rgba(0, 0, 0, 0.3) 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="token" style="color: rgb(241, 250, 140);">git</span><span> clone https://github.com/YOURNAME/python-for-android
+  </span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy" style="color: white;"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play" style="color: white;"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="" rel="noreferrer" style="word-break: break-word; display: inline-block; position: relative; bottom: 10px; right: 0px;"><h6 class="text-always-white"></h6></a></div></div></pre>
+  </div>
+  <div class="fs-5">
+    <ol class="mb-2" start="2" ordered="true" depth="0">
+      <li>
+        Create a new recipe for your specific C code. In the
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >python-for-android/recipes/</code
+        >
+        directory, create a new directory for your recipe. For example, if your
+        recipe is for a library called "mylib", create a directory called
+        "mylib" inside the
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >python-for-android/recipes/</code
+        >
+        directory.
+      </li>
+    </ol>
+  </div>
+  <div class="fs-5">
+    <ol class="mb-2" start="3" ordered="true" depth="0">
+      <li>
+        Inside the newly created recipe directory, create a file called
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >recipe.sh</code
+        >. This file will contain the definition of the module to compile. You
+        can use a template recipe file as a starting point. For example, you can
+        copy the
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >recipe.sh.tmpl</code
+        >
+        file from another recipe and rename it to
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >recipe.sh</code
+        >.
+      </li>
+    </ol>
+  </div>
+  <div class="fs-5">
+    <ol class="mb-2" start="4" ordered="true" depth="0">
+      <li>
+        Edit the
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >recipe.sh</code
+        >
+        file to adjust the version, URL, and other information specific to your
+        C code. You can also define the build function in this file.
+      </li>
+    </ol>
+  </div>
+  <div class="fs-5">
+    <ol class="mb-2" start="5" ordered="true" depth="0">
+      <li>
+        After defining the recipe, you can use Buildozer to build your Android
+        application. In the
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >buildozer.spec</code
+        >
+        file in your application directory, you can reference your version of
+        Python for Android by setting the
+        <code
+          style="
+            background-color: white;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+          "
+          >p4a.source_dir</code
+        >
+        parameter to the path of your cloned repository:
+      </li>
+    </ol>
+  </div>
+  <div class="fs-5">
+    <pre><div class="mt-3 p-1" style="background-color: rgb(40, 42, 54); border-radius: 12px;"><div style="color: rgb(248, 248, 242); background: rgb(40, 42, 54); text-shadow: rgba(0, 0, 0, 0.3) 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; padding: 1em; margin: 0.5em 0px; overflow: auto; border-radius: 0.3em;"><code class="language-ruby" style="color: rgb(248, 248, 242); background: none; text-shadow: rgba(0, 0, 0, 0.3) 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span>p4a</span><span class="token" style="color: rgb(248, 248, 242);">.</span><span>source_dir </span><span class="token" style="color: rgb(248, 248, 242);">=</span><span> </span><span class="token" style="color: rgb(248, 248, 242);">/</span><span>path</span><span class="token" style="color: rgb(248, 248, 242);">/</span><span>to</span><span class="token" style="color: rgb(248, 248, 242);">/</span><span>your</span><span class="token" style="color: rgb(248, 248, 242);">/</span><span>python</span><span class="token" style="color: rgb(248, 248, 242);">-</span><span class="token" style="color: rgb(139, 233, 253);">for</span><span class="token" style="color: rgb(248, 248, 242);">-</span><span>android
+  </span></code></div><div class="flex"><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-copy" style="color: white;"></i></button><button class="btn btn-circle mt-n5" type="submit"><i class="fe fe-play" style="color: white;"></i></button><a class="fw-bold fs-6 text-white mt-n1" target="_blank" href="" rel="noreferrer" style="word-break: break-word; display: inline-block; position: relative; bottom: 10px; right: 0px;"><h6 class="text-always-white"></h6></a></div></div></pre>
+  </div>
+  <div class="fs-5">
+    <ol class="mb-2" start="6" ordered="true" depth="0">
+      <li>
+        Once you have successfully compiled your C code and tested it, you can
+        contribute your recipe to the Python for Android project by issuing a
+        pull request. Create a branch for your recipe, add and commit the
+        changes, and then submit the pull request.
+      </li>
+    </ol>
+  </div>
+  <div class="fs-5">
+    <p class="text-black mb-3">
+      Please note that these steps are a general guideline, and you may need to
+      customize them based on your specific requirements. For more information,
+      you can refer to the official documentation and resources for Python for
+      Android and Buildozer
+      <a
+        target="_blank"
+        href="https://buildozer.readthedocs.io/en/latest/contribute.html"
+        >[0]</a
+      >
+      <a target="_blank" href="https://buildozer.readthedocs.io/en/latest/"
+        >[1]</a
+      >
+      <a
+        target="_blank"
+        href="https://kivy.org/doc/stable/guide/packaging-android.html"
+        >[2]</a
+      >.
+    </p>
+  </div>
+</div>
