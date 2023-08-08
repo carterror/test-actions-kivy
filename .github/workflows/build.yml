@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    - name: Print git ref
-      run: echo ${{ github.ref }}
-    # steps:
+    steps:
+      - name: Print git ref
+        run: echo ${{ github.ref }}
     # - name: Checkout
     #   uses: actions/checkout@v3
     # - name: Install Deps
